@@ -11,8 +11,8 @@ const {Products} = require('../database')
         const items = await Products.findAll();
          console.log('items', items)
 
-        if(items.length === 0){
-         Products.bulkCreate(data)      
+        if(!items.length){
+        await Products.bulkCreate(data)      
           }
         if(items.length){
             res.send(items)
