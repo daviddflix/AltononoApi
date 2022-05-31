@@ -4,21 +4,23 @@ const {Products} = require('../database')
 
  const products = (async (req, res) => {
 
-    res.send('hola')
     
-    // try { 
+    
+    try { 
         
-    //     const items = await Products.findAll();
-       
-    //     if(items.length === 0){
-    //       await Products.bulkCreate(data) 
-    //       }
-    //     if(items.length){
-    //         res.send(info)
-    //     }
-    // } catch (error) {
-    //     console.log('error on product route', error)
-    // }
+        const items = await Products.findAll();
+         console.log('items', items)
+
+        if(items.length === 0){
+        //   await Products.bulkCreate(data) 
+        res.send('model empty')
+          }
+        if(items.length){
+            res.send(info)
+        }
+    } catch (error) {
+        console.log('error on product route', error)
+    }
 
   
 })
