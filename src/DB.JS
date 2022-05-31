@@ -6,7 +6,7 @@ const console = require('console');
 const basename = path.basename(__filename);
 
 const {
-  DATABASE_URL
+  HEROKU_POSTGRESQL_ORANGE_URL
 } = process.env;
 
 // 'postgres://postgres:Austria2021@localhost/altonono'
