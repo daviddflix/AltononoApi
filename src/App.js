@@ -42,7 +42,7 @@ app.post('/notification',async (req, res) => {
                      }
                    });
                    console.log('payment:', payment.data)
-                   console.log('payment.payer:', payment.data.payer)
+                
                   
                    
                   if(payment.data.status === 'approved'){
