@@ -1,5 +1,5 @@
 const data = require('../items/Items')
-const {Products} = require('../db')
+const {Products} = require('../database')
 
 
  const products = (async (req, res) => {
