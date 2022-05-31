@@ -1,5 +1,5 @@
 const {sequelize} = require('./src/database')
-const {server} = require('./src/App')
+const server = require('./src/App')
 
 const port = process.env.PORT || 4000
 
