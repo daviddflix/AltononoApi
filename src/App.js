@@ -1,5 +1,5 @@
 
-const {payments} = require('./database')
+const {Payments} = require('./database')
 const axios = require("axios");
 const express = require('express');
 const http = require("http");
@@ -46,7 +46,7 @@ app.post('/notification',async (req, res) => {
                   
                    
                   if(payment.data.status === 'approved'){
-                    const pays = await payments.create({
+                    const pays = await Payments.create({
                       monto: payment.data.transaction_amount,
                       method: payment.data.payment_type_id,
                       status: payment.data.status,
