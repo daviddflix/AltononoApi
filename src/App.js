@@ -28,56 +28,56 @@ io.on('connection', (socket) => {
 })
 
 
-// app.post('/notification',async (req, res) => {
-//   console.log('body:',req.body)
+app.post('/notification',async (req, res) => {
+  console.log('body:',req.body)
 
-//      try {
-//         const id = req.body.data.id
+     try {
+        const id = req.body.data.id
    
-//         const url = `https://api.mercadopago.com/v1/payments/${id}`
+        const url = `https://api.mercadopago.com/v1/payments/${id}`
 
-//         const payment = await axios.get(url, {
-//                      headers: {
-//                        Authorization: `Bearer ${process.env.TEST_ACCESS_TOKEN}`
-//                      }
-//                    });
-//                    console.log('payment:', payment.data)
+        const payment = await axios.get(url, {
+                     headers: {
+                       Authorization: `Bearer ${process.env.TEST_ACCESS_TOKEN}`
+                     }
+                   });
+                   console.log('payment:', payment.data)
                 
                   
                    
-//                   if(payment.data.status === 'approved'){
-//                     const pays = await payments.create({
-//                       monto: payment.data.transaction_amount,
-//                       method: payment.data.payment_type_id,
-//                       status: payment.data.status,
-//                       name: payment.data.payer.first_name,
-//                       items: payment.data.additional_info.items
-//                     })
+                  if(payment.data.status === 'approved'){
+                    const pays = await payments.create({
+                      monto: payment.data.transaction_amount,
+                      method: payment.data.payment_type_id,
+                      status: payment.data.status,
+                      name: payment.data.payer.first_name,
+                      items: payment.data.additional_info.items
+                    })
                 
 
-//                       if(pays){
-//                         global.socket.emit('payment', [pays])
-//                       }
+                      if(pays){
+                        global.socket.emit('payment', [pays])
+                      }
                   
-//                     res.sendStatus(200)
+                    res.sendStatus(200)
 
-//                   } else {
+                  } else {
 
-//                     res.sendStatus(200)
-//                   }
+                    res.sendStatus(200)
+                  }
 
 
                          
                   
-//      } catch (error) {
-//          console.log('error Notification:', error)
-//      }
+     } catch (error) {
+         console.log('error Notification:', error)
+     }
       
       
-// })
+})
 
 
 app.use(require('./routes/products'))
-// app.use(require('./routes/paymentLink'))
+app.use(require('./routes/paymentLink'))
 
 module.exports = server

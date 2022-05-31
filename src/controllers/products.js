@@ -12,7 +12,7 @@ const {Products} = require('../database')
          console.log('items', items)
 
         if(!items.length){
-         Products.bulkcreate(data)   
+         Products.bulkCreate(data)   
           }
         if(items.length){
             res.send(items)
