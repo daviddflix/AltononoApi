@@ -12,10 +12,11 @@ const {Products} = require('../database')
          console.log('items', items)
 
         if(items.length === 0){
-          await Products.bulkCreate(data) 
+         const data =  await Products.bulkCreate(data) 
+         res.send(data)
           }
         if(items.length){
-            res.send(info)
+            res.send(items)
         }
     } catch (error) {
         console.log('error on product route', error)
