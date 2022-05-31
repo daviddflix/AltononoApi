@@ -12,8 +12,8 @@ const {Products} = require('../database')
          console.log('items', items)
 
         if(items.length === 0){
-        //   await Products.bulkCreate(data) 
-        res.send('model empty')
+          await Products.bulkCreate(data) 
+        res.send('model created')
           }
         if(items.length){
             res.send(info)
