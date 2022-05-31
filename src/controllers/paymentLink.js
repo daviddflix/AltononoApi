@@ -14,9 +14,9 @@ const paymentLink = (async (req, res) => {
     items: items.cart,
     auto_return:'approved',
     back_urls: {
-      failure: "https://hitpasta.vercel.app",
-      pending: "https://hitpasta.vercel.app",
-      success: "https://hitpasta.vercel.app"
+      failure: "https://altonono.vercel.app",
+      pending: "https://altonono.vercel.app",
+      success: "https://altonono.vercel.app/paymentmp"
     },
     binary_mode:true,
     payer: {
