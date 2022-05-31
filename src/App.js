@@ -78,5 +78,6 @@ app.post('/notification',async (req, res) => {
 
 
 app.use(require('./routes/products'))
+app.use(require('./routes/paymentLink'))
 
 module.exports = {server}
