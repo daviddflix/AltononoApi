@@ -12,7 +12,7 @@ const s3 = 'Espirituosas'
 const s4 = 'Comidas'
 const s5 = 'Ensaladas'
 const s6 = 'Postres'
-const s7 = 'Snacks'
+const s7 = 'Kiosco'
 const s8 = 'Vinos'
 
 const Products = [
@@ -48,7 +48,7 @@ const Products = [
 
 {title: 'Ensalada Caesar con Pollo', description: '', category_id: s5, unit_price: 700},
 {title: 'Ensalada Vegana', description: '', category_id: s5, unit_price: drinks4},
-{title: 'Ensalada de Frutas', description: '', category_id: s5, unit_price: drinks3},
+{title: 'Ensalada de Frutas', description: '', category_id: s6, unit_price: drinks3},
 
 {title: 'Cheesecake', description: '', category_id: s6, unit_price: postres},
 {title: 'Chocotorta', description: '', category_id: s6, unit_price: postres},
