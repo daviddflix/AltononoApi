@@ -2,7 +2,6 @@ require('dotenv').config();
 const { Sequelize} = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-const console = require('console');
 const basename = path.basename(__filename);
 
 const {
