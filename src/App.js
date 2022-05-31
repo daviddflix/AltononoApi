@@ -1,5 +1,5 @@
 
-const {payments} = require('./db')
+const {payments} = require('../src/db')
 const axios = require("axios");
 const express = require('express');
 const http = require("http");
