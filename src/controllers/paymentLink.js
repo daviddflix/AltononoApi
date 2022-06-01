@@ -1,5 +1,5 @@
 const mercadopago = require ('mercadopago');
-const {Payments} = require('./database')
+const {Payments} = require('../database')
 
 const paymentLink = (async (req, res) => {
       
