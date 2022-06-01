@@ -16,6 +16,19 @@ const s7 = 'Kiosco'
 const s8 = 'Vinos'
 
 const Products = [
+
+{title: 'Empanada Vegana 2u', description: 'Soja Texturizada, Cebolla, Morron y Aceitunas', category_id: s4, unit_price: drinks1},
+{title: 'Papas Fritas', description: '', category_id: s4, unit_price: drinks4},
+{title: 'Lomito + Cheddar', description: 'Con Cebolla Caramelizada', category_id: s4, unit_price: 850},
+{title: 'Lomito Completo', description: 'Queso, Lechuga y Tomate', category_id: s4, unit_price: 950},
+{title: 'Hamburguesa', description: '', category_id: s4, unit_price: 500},
+{title: 'Hamburguesa Completa', description: 'Queso, Lechuga y Tomate', category_id: s4, unit_price: 600},
+{title: 'Hamburguesa Vegana', description: '', category_id: s4, unit_price: 650},
+{title: 'Hamburguesa Vegana Completa', description: 'Queso, Lechuga y Tomate', category_id: s4, unit_price: 700},
+{title: 'Bondiola', description: '', category_id: s4, unit_price: 750},
+{title: 'Bondiola Completa', description: 'Queso, Lechuga y Tomate', category_id: s4, unit_price: 850},
+{title: 'Pizza', description: 'Muzzarella', category_id: s4, unit_price: 1500},
+
 {title: 'Pepsi', description: '500cc', category_id: s1, unit_price: drinks},
 {title: 'Pepsi Black', description: '500cc', category_id: s1, unit_price: drinks},
 {title: '7Up', description: '500cc', category_id: s1, unit_price: drinks},
@@ -62,17 +75,7 @@ const Products = [
 {title: 'Alma Mora Chardonnay', description: 'Botella de Vino', category_id: s8, unit_price: 2000},
 
 
-{title: 'Empanada Vegana 2u', description: 'Soja Texturizada, Cebolla, Morron y Aceitunas', category_id: s4, unit_price: drinks1},
-{title: 'Papas Fritas', description: '', category_id: s4, unit_price: drinks4},
-{title: 'Lomito + Cheddar', description: 'Con Cebolla Caramelizada', category_id: s4, unit_price: 850},
-{title: 'Lomito Completo', description: 'Queso, Lechuga y Tomate', category_id: s4, unit_price: 950},
-{title: 'Hamburguesa', description: '', category_id: s4, unit_price: 500},
-{title: 'Hamburguesa Completa', description: 'Queso, Lechuga y Tomate', category_id: s4, unit_price: 600},
-{title: 'Hamburguesa Vegana', description: '', category_id: s4, unit_price: 650},
-{title: 'Hamburguesa Vegana Completa', description: 'Queso, Lechuga y Tomate', category_id: s4, unit_price: 700},
-{title: 'Bondiola', description: '', category_id: s4, unit_price: 750},
-{title: 'Bondiola Completa', description: 'Queso, Lechuga y Tomate', category_id: s4, unit_price: 850},
-{title: 'Pizza', description: 'Muzzarella', category_id: s4, unit_price: 1500},
+
 
 ]
 
