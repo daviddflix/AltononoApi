@@ -9,8 +9,7 @@ const {Products} = require('../database')
     try { 
         
         const items = await Products.findAll();
-         console.log('items', items)
-
+        
         if(!items.length){
       const info  = await Products.bulkCreate(data)  
       res.send(info) 

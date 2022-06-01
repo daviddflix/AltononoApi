@@ -21,7 +21,7 @@ const cors = require('cors')
 app.use(express.json())
 app.use(cors())
 
-global.socket = io.emit
+global.socket = io
 io.on('connection', (socket) => {
   console.log('client connect', socket.id)
   global.socket = socket
@@ -29,7 +29,7 @@ io.on('connection', (socket) => {
 
 
 app.post('/notification',async (req, res) => {
-  console.log('body:',req.body)
+  // console.log('body:',req.body)
 
      try {
         const id = req.body.data.id
@@ -56,7 +56,7 @@ app.post('/notification',async (req, res) => {
                 
 
                       if(pays){
-                        global.socket.emit('payment', [pays])
+                        global.socket('payment', payment)
                       }
                   
                     res.sendStatus(200)
@@ -77,13 +77,13 @@ app.post('/notification',async (req, res) => {
 })
 
 
-app.post('cashpayment', async (req, res) => {
+app.post('/cashpayment', async (req, res) => {
+ try {
+  
   const body = req.body
-  console.log('body', body)
-
-  if(body){
-    global.socket.emit('payment', [body])
-  }
+  
+    global.socket.emit('payment', body)
+  
 
   const pays = await Payments.create({
     method: 'Efectivo',
@@ -94,6 +94,10 @@ app.post('cashpayment', async (req, res) => {
 
 
  res.send('payment created and sent')
+
+ } catch (error) {
+   console.log('error en cash', error)
+ }
 
 })
 
