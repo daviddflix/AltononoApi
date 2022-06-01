@@ -46,21 +46,20 @@ app.post('/notification',async (req, res) => {
                   
                    
                   if(payment.data.status === 'approved'){
-                    const pays = await Payments.create({
-                      monto: payment.data.transaction_amount,
-                      method: payment.data.payment_type_id,
-                      status: payment.data.status,
-                      name: payment.data.payer.first_name,
-                      items: payment.data.additional_info.items
-                    })
+                    // const pays = await Payments.create({
+                    //   monto: payment.data.transaction_amount,
+                    //   method: payment.data.payment_type_id,
+                    //   status: payment.data.status,
+                    //   name: payment.data.payer.first_name,
+                    //   items: payment.data.additional_info.items
+                    // })
                 
 
-                      if(pays){
-                        global.socket('payment', payment)
-                      }
+                        global.socket.emit('payment', payment)
+                      
                   
                     res.sendStatus(200)
-
+                  console.log('sent and emitted')
                   } else {
 
                     res.sendStatus(200)
@@ -82,16 +81,18 @@ app.post('/cashpayment', async (req, res) => {
   
   const body = req.body
   
-    global.socket.emit('payment', body)
   
-
+  
   const pays = await Payments.create({
     method: 'Efectivo',
     status: 'approved',
     name: body.client.name,
+    table: body.client.table,
+    email: body.client.email,
     items: body.cart
   })
-
+  
+  global.socket.emit('payment', pays)
 
  res.send('payment created and sent')
 
