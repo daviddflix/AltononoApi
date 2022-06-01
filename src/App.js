@@ -77,6 +77,27 @@ app.post('/notification',async (req, res) => {
 })
 
 
+app.post('cashpayment', (req, res) => {
+  const body = req.body
+  console.log('body', body)
+
+  if(body){
+    global.socket.emit('cashPayment', [body])
+  }
+
+  const pays = await Payments.create({
+    method: 'Efectivo',
+    status: 'approved',
+    name: body.client.name,
+    items: body.cart
+  })
+
+
+ res.send(pays)
+
+})
+
+
 app.use(require('./routes/products'))
 app.use(require('./routes/paymentLink'))
 
