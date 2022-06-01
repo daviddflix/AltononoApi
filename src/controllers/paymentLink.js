@@ -20,7 +20,10 @@ const paymentLink = (async (req, res) => {
     },
     binary_mode:true,
     payer: {
-      id: Number(items.client.id),
+      identification: {
+        number: Number(items.client.id),
+        type: 'table'
+      },   
       email: items.client.email,
       name: items.client.name,
     }
