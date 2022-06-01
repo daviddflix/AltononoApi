@@ -81,7 +81,8 @@ app.post('/cashpayment', async (req, res) => {
   
   const body = req.body
   
-  
+  const subtotal = body.cart.map(p => p.unit_price * p.quantity)
+  const total = subtotal.reduce((a,b) => a + b, 0)
   
   const pays = await Payments.create({
     method: 'Efectivo',
@@ -89,7 +90,8 @@ app.post('/cashpayment', async (req, res) => {
     name: body.client.name,
     table: body.client.table,
     email: body.client.email,
-    items: body.cart
+    items: body.cart,
+    monto: total
   })
   
   global.socket.emit('payment', pays)
