@@ -82,7 +82,7 @@ app.post('cashpayment', async (req, res) => {
   console.log('body', body)
 
   if(body){
-    global.socket.emit('cashPayment', [body])
+    global.socket.emit('payment', [body])
   }
 
   const pays = await Payments.create({
@@ -93,7 +93,7 @@ app.post('cashpayment', async (req, res) => {
   })
 
 
- res.send(pays)
+ res.send('payment created and sent')
 
 })
 
