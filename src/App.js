@@ -46,16 +46,11 @@ app.post('/notification',async (req, res) => {
                   
                    
                   if(payment.data.status === 'approved'){
-                    // const pays = await Payments.create({
-                    //   monto: payment.data.transaction_amount,
-                    //   method: payment.data.payment_type_id,
-                    //   status: payment.data.status,
-                    //   name: payment.data.payer.first_name,
-                    //   items: payment.data.additional_info.items
-                    // })
+                    
+                    const pay = await Payments.findOne({where: {items: payment.data.additional_info.items}})
                 
 
-                        global.socket.emit('payment', payment)
+                        global.socket.emit('payment', pay)
                       
                   
                     res.sendStatus(200)

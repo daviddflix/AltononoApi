@@ -1,4 +1,5 @@
 const mercadopago = require ('mercadopago');
+const {Payments} = require('./database')
 
 const paymentLink = (async (req, res) => {
       
@@ -29,6 +30,20 @@ const paymentLink = (async (req, res) => {
     }
     
   };
+
+  const subtotal = items.cart.map(p => p.unit_price * p.quantity)
+  const total = subtotal.reduce((a,b) => a + b, 0)
+
+  await Payments.create({
+    method: 'Mercado Pago',
+    status: 'approved',
+    name: items.client.name,
+    table: items.client.table,
+    email: items.client.email,
+    items: items.cart,
+    monto: total
+  })
+
     mercadopago.preferences.create(preference)
     .then(function(response){
       
