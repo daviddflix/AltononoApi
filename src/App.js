@@ -50,7 +50,9 @@ app.post('/notification',async (req, res) => {
                     const pay = await Payments.findOne({where: {items: payment.data.additional_info.items}})
                 
 
+                       if(pay){
                         global.socket.emit('payment', pay)
+                       }
                       
                   
                     res.sendStatus(200)
