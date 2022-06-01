@@ -77,7 +77,7 @@ app.post('/notification',async (req, res) => {
 })
 
 
-app.post('cashpayment', (req, res) => {
+app.post('cashpayment', async (req, res) => {
   const body = req.body
   console.log('body', body)
 
