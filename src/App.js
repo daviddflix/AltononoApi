@@ -47,7 +47,7 @@ app.post('/notification',async (req, res) => {
                    
                   if(payment.data.status === 'approved'){
                     
-                    const pay = await Payments.findOne({where: {items: payment.data.additional_info.items}})
+                    const pay = await Payments.findOne({where: {name: payment.data.additional_info.payer.first_name}})
                 
 
                        if(pay){
