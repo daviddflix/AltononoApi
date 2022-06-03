@@ -110,9 +110,11 @@ app.post('/cashpayment', async (req, res) => {
     comentarios: body.client.comentarios
   })
   
+ if(pays){
+  console.log('payment created')
   global.socket.emit('payment', pays)
-
- res.send('payment created and sent')
+  res.send('payment created and sent')
+ }
 
  } catch (error) {
    console.log('error en cash', error)
