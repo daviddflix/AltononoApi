@@ -77,11 +77,15 @@ app.post('/online', async(req, res) => {
   const query = req.query
 
   if(query === 'online'){
+    console.log('online')
     global.socket.emit('online', query)
+    res.send('store online and emitted')
    }
 
    if(query === 'offline'){
+    console.log('offline')
     global.socket.emit('offline', query)
+    res.send('store offline and emitted')
    }
 
 })
