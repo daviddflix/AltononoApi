@@ -74,17 +74,17 @@ app.post('/notification',async (req, res) => {
 
 app.post('/online', async(req, res) => {
 
-  const query = req.query
+  const {status} = req.query
 
-  if(query === 'online'){
+  if(status === 'online'){
     console.log('online')
-    global.socket.emit('online', query)
+    global.socket.emit('online', status)
     res.send('store online and emitted')
    }
 
-   if(query === 'offline'){
+   if(status === 'offline'){
     console.log('offline')
-    global.socket.emit('offline', query)
+    global.socket.emit('offline', status)
     res.send('store offline and emitted')
    }
 
