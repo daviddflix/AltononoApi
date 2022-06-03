@@ -3,6 +3,6 @@ const router = express.Router()
 
 const details = require('../controllers/details')
 
-router.post('/details', details)
+router.get('/details', details)
 
 module.exports = router
