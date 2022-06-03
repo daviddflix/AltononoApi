@@ -60,15 +60,15 @@ const Products = [
 {title: 'Gin Tonic Gordons', description: '', category_id: s3, unit_price: drinks3},
 
 {title: 'Ensalada Caesar con Pollo', description: '', category_id: s5, unit_price: 700},
-{title: 'Ensalada Vegana', description: '', category_id: s5, unit_price: drinks4},
+{title: 'Ensalada Vegana', description: '', category_id: s5, unit_price: 600},
 {title: 'Ensalada de Frutas', description: '', category_id: s6, unit_price: drinks3},
 
 {title: 'Cheesecake', description: '', category_id: s6, unit_price: postres},
 {title: 'Chocotorta', description: '', category_id: s6, unit_price: postres},
 
-{title: 'Alfajor', description: '', category_id: s7, unit_price: 150},
+{title: 'Alfajor', description: 'Jorgito', category_id: s7, unit_price: 200},
 {title: 'Chupetin', description: '', category_id: s7, unit_price: 100},
-{title: 'Barrita Cereal', description: '', category_id: s7, unit_price: 150},
+{title: 'Barrita Cereal', description: '', category_id: s7, unit_price: 300},
 
 {title: 'Copa de Vino', description: '', category_id: s8, unit_price: drinks1},
 {title: 'Alma Mora Malbec', description: 'Botella de Vino', category_id: s8, unit_price: 2000},
