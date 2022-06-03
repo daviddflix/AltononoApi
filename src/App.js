@@ -111,8 +111,8 @@ app.post('/cashpayment', async (req, res) => {
   })
   
  if(pays){
-  console.log('payment created')
-  global.socket.emit('payment', pays)
+   global.socket.emit('payment', pays)
+   console.log('payment created')
   res.send('payment created and sent')
  }
 
