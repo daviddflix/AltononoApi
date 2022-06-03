@@ -10,6 +10,7 @@ module.exports = (sequelize) => {
     table: {type: DataTypes.STRING},
     email: {type: DataTypes.STRING},
     status: {type: DataTypes.STRING},
+    comentarios: {type: DataTypes.STRING},
     items: {type: DataTypes.JSON},
     id: {type: DataTypes.BIGINT, primaryKey: true, autoIncrement: true}
   }, {timestamps: true })

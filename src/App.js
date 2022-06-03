@@ -72,6 +72,20 @@ app.post('/notification',async (req, res) => {
       
 })
 
+app.post('/online', async(req, res) => {
+
+  const query = req.query
+
+  if(query === 'online'){
+    global.socket.emit('online', query)
+   }
+
+   if(query === 'offline'){
+    global.socket.emit('offline', query)
+   }
+
+})
+
 
 app.post('/cashpayment', async (req, res) => {
  try {
@@ -88,7 +102,8 @@ app.post('/cashpayment', async (req, res) => {
     table: body.client.table,
     email: body.client.email,
     items: body.cart,
-    monto: total
+    monto: total,
+    comentarios: body.client.comentarios
   })
   
   global.socket.emit('payment', pays)
@@ -104,5 +119,6 @@ app.post('/cashpayment', async (req, res) => {
 
 app.use(require('./routes/products'))
 app.use(require('./routes/paymentLink'))
+app.use(require('./routes/details'))
 
 module.exports = server

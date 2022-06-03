@@ -41,7 +41,8 @@ const paymentLink = (async (req, res) => {
     table: items.client.table,
     email: items.client.email,
     items: items.cart,
-    monto: total
+    monto: total,
+    comentarios: items.client.comentarios
   })
 
     mercadopago.preferences.create(preference)
