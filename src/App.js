@@ -100,7 +100,7 @@ app.post('/cashpayment', async (req, res) => {
     status: 'approved',
     name: body.client.name,
     table: body.client.table,
-    email: body.client.email,
+    telefono: body.client.telefono,
     items: body.cart,
     monto: total,
     comentarios: body.client.comentarios

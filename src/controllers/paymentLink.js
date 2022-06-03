@@ -25,7 +25,6 @@ const paymentLink = (async (req, res) => {
         number: items.client.table,
         type: 'table'
       },   
-      email: items.client.email,
       name: items.client.name,
     }
     
@@ -39,7 +38,7 @@ const paymentLink = (async (req, res) => {
     status: 'approved',
     name: items.client.name,
     table: items.client.table,
-    email: items.client.email,
+    telefono: items.client.telefono,
     items: items.cart,
     monto: total,
     comentarios: items.client.comentarios

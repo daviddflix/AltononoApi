@@ -8,7 +8,7 @@ module.exports = (sequelize) => {
     monto: {type: DataTypes.INTEGER},
     method: {type: DataTypes.STRING},
     table: {type: DataTypes.STRING},
-    email: {type: DataTypes.STRING},
+    telefono: {type: DataTypes.STRING},
     status: {type: DataTypes.STRING},
     comentarios: {type: DataTypes.STRING},
     items: {type: DataTypes.JSON},
