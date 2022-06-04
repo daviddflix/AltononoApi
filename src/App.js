@@ -91,7 +91,7 @@ app.post('/online', async(req, res) => {
       console.log('online')
       global.socket.emit('online', status)
       res.send('store online and emitted')
-    }, 1000);
+    }, 10000);
    }
 
    if(status === 'offline'){
@@ -99,11 +99,11 @@ app.post('/online', async(req, res) => {
       console.log('offline')
       global.socket.emit('offline', status)
       res.send('store offline and emitted')
-    }, 1000);
+    }, 10000);
    }
 
 })
-console.log('global:', global.socket.emit)
+
 
 app.post('/cashpayment', async (req, res) => {
  try {
