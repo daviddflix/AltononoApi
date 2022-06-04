@@ -18,7 +18,7 @@ const sequelize = new Sequelize( DATABASE_URL, {
       require: true,
       rejectUnauthorized: false,
     },
-  timezone: "+04:00"
+  timezone: "+10:00"
    } 
 });
 
