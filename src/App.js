@@ -31,15 +31,17 @@ io.on('connection', (socket) => {
   socket.on('pong', (data) => {
     console.log('pong received')
   })
-  console.log('client connect', socket.id)
+
+  console.log('client connected', socket.id)
   global.socket = socket
 })
 
 setTimeout(sendHeartbeat, 8000)
 
 
+
 app.post('/notification',async (req, res) => {
-  // console.log('body:',req.body)
+
 
      try {
         const id = req.body.data.id
@@ -135,7 +137,7 @@ app.post('/cashpayment', async (req, res) => {
 }
 
  } catch (error) {
-   console.log('error en cash', error)
+   console.log('error en cashPayment', error)
  }
 
 })
