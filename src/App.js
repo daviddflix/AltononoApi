@@ -89,7 +89,7 @@ app.post('/online', async(req, res) => {
    }
 
 })
-
+console.log('global:', global.socket.emit)
 
 app.post('/cashpayment', async (req, res) => {
  try {
