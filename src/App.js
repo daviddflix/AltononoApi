@@ -125,11 +125,10 @@ app.post('/cashpayment', async (req, res) => {
   })
   
  if(pays){
-  global.socket.on('connection', () => {
     global.socket.emit('payment', pays)
     console.log('payment created')
    res.send('payment created and sent')
-  })
+  
  }
 
  } catch (error) {
