@@ -87,19 +87,17 @@ app.post('/online', async(req, res) => {
   const {status} = req.query
 
   if(status === 'online'){
-    setInterval(() => {
+ 
       console.log('online')
       global.socket.emit('online', status)
       res.send('store online and emitted')
-    }, 10000);
+   
    }
 
    if(status === 'offline'){
-    setInterval(() => {
       console.log('offline')
       global.socket.emit('offline', status)
       res.send('store offline and emitted')
-    }, 10000);
    }
 
 })
