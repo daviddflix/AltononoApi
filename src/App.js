@@ -21,11 +21,21 @@ const cors = require('cors')
 app.use(express.json())
 app.use(cors())
 
+function sendHeartbeat(){
+  setTimeout(sendHeartbeat, 8000);
+  io.sockets.emit('ping', {beat: 1})
+}
+
 global.socket = io
 io.on('connection', (socket) => {
+  socket.on('pong', (data) => {
+    console.log('pong received')
+  })
   console.log('client connect', socket.id)
   global.socket = socket
 })
+
+setTimeout(sendHeartbeat, 8000)
 
 
 app.post('/notification',async (req, res) => {
@@ -77,15 +87,19 @@ app.post('/online', async(req, res) => {
   const {status} = req.query
 
   if(status === 'online'){
-    console.log('online')
-    global.socket.emit('online', status)
-    res.send('store online and emitted')
+    setInterval(() => {
+      console.log('online')
+      global.socket.emit('online', status)
+      res.send('store online and emitted')
+    }, 1000);
    }
 
    if(status === 'offline'){
-    console.log('offline')
-    global.socket.emit('offline', status)
-    res.send('store offline and emitted')
+    setInterval(() => {
+      console.log('offline')
+      global.socket.emit('offline', status)
+      res.send('store offline and emitted')
+    }, 1000);
    }
 
 })
