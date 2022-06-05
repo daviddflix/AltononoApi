@@ -28,6 +28,10 @@ function sendHeartbeat(){
 
 global.socket = io
 io.on('connection', (socket) => {
+
+  console.log('client connected', socket.id)
+  global.socket = socket
+  
   socket.on('pong', (data) => {
     console.log('pong received')
   })
@@ -37,9 +41,9 @@ io.on('connection', (socket) => {
     console.log('data emitted:', data)
   })
 
-
-  console.log('client connected', socket.id)
-  global.socket = socket
+  socket.on('disconnect', () => {
+    console.log('client disconnected', socket.id)
+  })
 })
 
 setTimeout(sendHeartbeat, 8000)
