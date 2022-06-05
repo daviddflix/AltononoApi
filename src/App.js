@@ -32,6 +32,11 @@ io.on('connection', (socket) => {
     console.log('pong received')
   })
 
+  socket.on('pedido', data => {
+    socket.emit('order', data)
+  })
+
+
   console.log('client connected', socket.id)
   global.socket = socket
 })
@@ -123,13 +128,15 @@ app.post('/cashpayment', async (req, res) => {
     monto: total,
     comentarios: body.client.comentarios
   })
+
+  console.log('payment created')
+  res.send('payment created and sent')
   
- if(pays){
-    global.socket.emit('payment', pays)
-    console.log('payment created')
-   res.send('payment created and sent')
-  
- }
+//  if(pays){
+//     global.socket.emit('payment', pays)
+//     console.log('payment created')
+//    res.send('payment created and sent')
+//  }
 
  } catch (error) {
    console.log('error en cashPayment', error)
