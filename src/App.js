@@ -36,10 +36,10 @@ io.on('connection', (socket) => {
     console.log('pong received')
   })
 
-  socket.on('pedido', data => {
-    io.emit('order', data)
-    console.log('data emitted:', data)
-  })
+  // socket.on('pedido', data => {
+  //   io.emit('order', data)
+  //   console.log('data emitted:', data)
+  // })
 
   socket.on('disconnect', () => {
     console.log('client disconnected', socket.id)
@@ -137,11 +137,11 @@ app.post('/cashpayment', async (req, res) => {
   console.log('payment created')
   res.send('payment created and sent')
   
-//  if(pays){
-//     global.socket.emit('payment', pays)
-//     console.log('payment created')
-//    res.send('payment created and sent')
-//  }
+ if(pays){
+   io.emit('order', pays)
+    console.log('payment created')
+   res.send('payment created and sent')
+ }
 
  } catch (error) {
    console.log('error en cashPayment', error)
