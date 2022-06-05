@@ -33,6 +33,7 @@ io.on('connection', (socket) => {
   })
 
   socket.on('pedido', data => {
+    console.log('data:', data)
     socket.emit('order', data)
   })
 
