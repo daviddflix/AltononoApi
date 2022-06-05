@@ -31,13 +31,13 @@ io.on('connection', (socket) => {
 
   console.log('client connected', socket.id)
   global.socket = socket
-  
+
   socket.on('pong', (data) => {
     console.log('pong received')
   })
 
   socket.on('pedido', data => {
-    socket.emit('order', data)
+    io.emit('order', data)
     console.log('data emitted:', data)
   })
 
